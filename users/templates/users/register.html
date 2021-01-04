@@ -1,0 +1,25 @@
+{% extends 'task/base.html' %}
+
+{% load static %}
+{% block content %} 
+    <header class="header-content-wrapper">
+        <div class="header-content">
+            <div class="left-menu">
+            <div class="logo">
+                <a href="{% url 'home-task' %}"><img src="{% static 'task/img/logo3.png' %} " alt=""></a>
+            </div>
+            <ul class="menu main-menu">
+            </ul>
+        </div>
+    </header>
+    <div class="register-container">
+        <div class="register-style">
+            <h2>Register Form</h2>
+            <form action="" method="POST" id="rform">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" class="btn">Register</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

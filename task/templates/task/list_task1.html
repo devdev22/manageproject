@@ -1,0 +1,69 @@
+{% extends 'task/base.html' %}
+
+{% block content %}
+ <div class="wrapper_tasks">
+    <div class="ver_menu">
+        <h2>T.P.M</h2>
+        {% if user.is_authenticated %}
+        <h3>{{user.username}} Tasks</h3>
+        {% endif %}
+        <ul class="ver_main_menu">
+            <li><a href="">List of task</a></li>
+            <li><a href="">Custumers</a></li>
+            <li><a href="">Social media</a></li>
+            <li><a href="">Filters</a></li>
+            <li><a href="">Search</a></li>
+            <li><a href="">Add users</a></li>
+            <li><a href="">Find users</a></li>
+            <li><a href="">Solutions</a></li>
+            <li><a href="">Products</a></li>
+        </ul>
+    </div>
+
+    <div class="main_task_content">
+        <div class="top-nav">
+            <h1>Start from scratch</h1>
+            <ul class="top-nav-right">
+                    <li>Integrate</li>
+                    <li>Automate</li>
+                    <li>Activities</li>
+             </ul>
+        </div>
+        
+        <div class="main_nav_task">
+            <a href="{% url 'home-task' %}" class="btn btn-task">Home</a> 
+            <a href="{% url 'logout' %}" class="btn btn-task">Log Out</a> 
+        </div>
+        <a href="" class="btn btn-task" id="btnModal">Add task</a> 
+        <div id="taskModal" class="modal">
+            <div class="modal-content">
+                <h2>New Task</h2>
+                <form action="" method="POST" id="rform">
+                    {% csrf_token %}
+                    {{ form }}
+                    <button type="submit" class="btn">Add new task</button>
+                </form>
+    
+                <a href="" class="btn btn-task" id="btnClose">Cancel</a>
+            
+            </div>
+               <!--be.az-->
+        </div>
+    
+        
+            {% for task in task %}
+            {% if task.user == user %}
+            <div class="table-tasks">
+                <a class="list-task-main" href="{% url 'detail' task.id %}"> {{ task.tasktitle }}</a>
+                <a class="list-task-date" href="{% url 'detail' task.id %}"> {{ task.date }}</a>
+            </div>
+            {% endif %}
+            {% endfor %}
+       
+
+    </div>
+
+</div>
+    
+{% endblock content %}
+    

@@ -1,0 +1,58 @@
+{% extends 'task/base.html' %}
+
+{% block content %}   
+
+<div class="wrapper_tasks">
+    <div class="ver_menu">
+        <h2>T.P.M</h2>
+        {% if user.is_authenticated %}
+        <h3>{{user.username}} Tasks</h3>
+        {% endif %}
+        <ul class="ver_main_menu">
+            <li><a href="">List of task</a></li>
+            <li><a href="">Custumers</a></li>
+            <li><a href="">Social media</a></li>
+            <li><a href="">Filters</a></li>
+            <li><a href="">Search</a></li>
+            <li><a href="">Add users</a></li>
+            <li><a href="">Find users</a></li>
+            <li><a href="">Solutions</a></li>
+            <li><a href="">Products</a></li>
+
+        </ul>
+    </div>
+
+    <div class="main_task_content">
+        <div class="top-nav">
+            <h1>Start from scratch</h1>
+            <ul class="top-nav-right">
+                    <li>Integrate</li>
+                    <li>Automate</li>
+                    <li>Activities</li>
+             </ul>
+        </div>
+        <div class="main_nav_task">
+
+        </div>
+
+        <div class="detail-task">
+            <div class="detail-task-content">
+                <a href=""></a><h2><span class="text_detail">Task:</span>  {{ object.tasktitle }}</h2></a>
+                <p><span class="text_detail">Detail:</span>  {{ object.taskdetail }}</p>
+                <h5><span class="text_detail">Date Posted:</span>  {{ object.date }}</h5>
+                <h3><span class="text_detail">User:</span>  {{ object.user }}</h3>
+                <a href="{% url 'tasksview' %}" class="btn btn-task">Back to list of Tasks</a>        
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock content %}
+    

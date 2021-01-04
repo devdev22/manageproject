@@ -1,0 +1,141 @@
+{% extends 'task/base.html' %}
+{% load static %}
+{% block content %}
+<div class="menu-btn">
+    <img src="{% static 'task/img/iconh.png' %}" alt="">
+</div>
+<div class="wrapper">
+    <!--header section-->
+    <header class="header-content-wrapper">
+        <div class="header-content">
+            <div class="left-menu">
+            <div class="logo">
+                <a href=""><img src="{% static 'task/img/logo3.png' %} " alt=""></a>
+            </div>
+            <ul class="menu main-menu">
+                <li><a href="">Solutions</a></li>
+                <li><a href="">Resources</a></li>
+                <li><a href="">Pricing</a></li>
+                <li><a href="">Products</a></li>
+                <li><a href="">Business</a></li>
+                {% if user.is_authenticated %}
+                <li class="li-display" ><a href="{% url 'tasksview' %}" class="li-color">Back To App</a></li>
+               <li class="li-display"><a  href="{% url 'logout' %}">Log Out</a></li>
+               <li class="li-display"><p>Welcom {{user.username}}</p></li>
+            {% else %}
+            <li class="li-display"><a  href="{% url 'login' %}">Log In</a></li>
+            {% endif %}
+            </ul>
+            </div>
+            
+            <ul class="menu right-menu">
+                {% if user.is_authenticated %}
+                    <li class="ul-display "><a class="li-color" href="{% url 'tasksview' %}">Back To App</a></li>
+                   <li class="ul-display"><a href="{% url 'logout' %}">Log Out</a></li>
+                   <li class="ul-display"><p>Welcom {{user.username}}</p></li>
+                {% else %}
+                <li class="ul-display"><a  href="{% url 'login' %}">Log In</a></li class="ul-display">
+                <a class=" ul-display btn" class="" href="{% url 'register' %}">Try For Free</a>
+                {% endif %}
+            </ul>
+        </div>
+    </header>
+    <!--hero section-->
+    <main class="showcase">
+        <div class="showcase-content">
+            <h1>Work on big ideas, without the busywork.</h1>
+            <p>From the small stuff to the big picture, organizes work so teams are clear what to do, why it matters, and how to get it done.</p>
+            {% if  user.is_authenticated %}
+            {% else %}
+              <a class="btn lg" href="{% url 'register' %}">Try For Free</a>
+            {% endif %}
+        </div>
+    </main>
+        <div class="showcase-image">
+            <img src="{% static 'task/img/a1.png' %} " alt="">
+        </div>
+
+    <section class="info">
+        <div class="info-content">
+            <h2>Manage everything in one workspace</h2>
+                <p>Planning, tracking and delivering your team’s best work has never been easier</p>
+        </div>
+        <img src="{% static 'task/img/info1.jpg' %}" alt="">
+    </section>
+    <section class="info info-or">
+        <img src="{% static 'task/img/info2.jpg' %}" alt="">
+        <div class="info-content">
+            <h2>Set up in minutes</h2>
+                <p>Get started fast with hundreds of visual and customizable templates - or create your own</p>
+        </div>
+          <!--be.az-->
+    </section>
+    <section class="info"> 
+        <div class="info-content">
+            <h2>Save time with Automations</h2>
+                <p>Automate the repetitive work in seconds so you can avoid human error and focus on what matters</p>
+        </div>
+        <img src="{% static 'task/img/info3.jpg' %}" alt="">
+    </section>
+
+
+</div>
+<section class="intro">
+   
+
+  
+</section>
+<section class="section-dark">
+    <h2>Always be prepared for what’s next</h2>
+    <p>It’s easy to get your team up and running . We’ve collected all of the boards and tools your team needs to succeed in one handy resource.Integrate the apps your team already uses directly into your workflow. Power-Ups turn boards into living applications to meet your team's unique business needs. No matter where you are,  stays in sync across all of your devices. Collaborate with your team anywhere, from sitting on the bus to sitting on the beach.</p>
+</section>
+<footer class="footer">
+<div class="footer-col">
+
+    
+<ul>
+    <li><a href="">Home</a></li>
+    <li><a href="">Product</a></li>
+    <li><a href="">Pricing</a></li>
+    <li><a href="">Premium</a></li>
+    <li><a href="">Business</a></li>
+    <li><a href="">Enterprise</a></li>
+    <li><a href="">Customer Success</a></li>
+    <li><a href="">Trust & Security</a></li>
+</ul>
+<ul>
+    <li><a href="">Company</a></li>
+    <li><a href="">Leadership</a></li>
+    <li><a href="">Customers</a></li>
+    <li><a href="">Diversity</a></li>
+    <li><a href="">Careers</a></li>
+    <li><a href="">Press</a></li>
+    <li><a href="">Wavelength</a></li>
+    <li><a href="">Investor Relations</a></li>
+</ul>
+<ul>
+    <li><a href="">Project Management</a></li>
+    <li><a href="">Goal Management</a></li>
+    <li><a href="">Task Management</a></li>
+    <li><a href="">Increase Productivity</a></li>
+    <li><a href="">Work Management</a></li>
+    <li><a href="">Enterprise</a></li>
+    <li><a href="">See All Uses</a></li>
+    <li><a href="">Leadership</a></li>
+</ul>
+<ul>
+    <li><a href="">Engineering</a></li>
+    <li><a href="">Product</a></li>
+    <li><a href="">Designers</a></li>
+    <li><a href="">Premium</a></li>
+    <li><a href="">Business</a></li>
+    <li><a href="">Marketinge</a></li>
+    <li><a href="">Customer Success</a></li>
+    <li><a href="">Trust & Security</a></li>
+</ul>
+</div>
+</footer>
+<script>
+    document.querySelector('.menu-btn').addEventListener('click', () => document.querySelector('.main-menu').classList.toggle('show'));
+</script>
+{% endblock content %}
